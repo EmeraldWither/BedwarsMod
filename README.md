@@ -1,6 +1,8 @@
 # Bedwars Mod
 A Forge 1.8.9 Hypixel Mod to add QOL and stats features to Hypixel Bedwars.
 
+**This mod is not affiliated with or endorsed by Hypixel, Inc.**
+
 ### Quick Message
 This mod has been inspired by a previous Bedwars utility mod by CalMWolfs that you can find [here](https://modrinth.com/mod/bedwar-mod). The plan for this project is to eventually add the majority of features seen in CalMWolfs' mod, but with improved functionality and more uses. I'm still working to implement a lot of these features and highly recommend you use CalMWolfs' mod until this mod has reached a stable release.
 
