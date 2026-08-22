@@ -107,6 +107,7 @@ public class SessionStats {
 
     @SubscribeEvent
     public void onClientChatReceived(ClientChatReceivedEvent event) {
+//        System.out.println("PLAYER CHAT RECIEVE!!");
         String message = FormatUtils.removeResetCode(event.message.getFormattedText());
         String unformattedMessage = event.message.getUnformattedText();
 
@@ -129,6 +130,7 @@ public class SessionStats {
         }
 
         if ((matcher = gameEndPattern.matcher(unformattedMessage)).find()) {
+//            System.out.println("In bed destruction");
             String matchedTeam = matcher.group("team");
             gamesEnded++;
             stopGameTimer();
@@ -143,6 +145,7 @@ public class SessionStats {
                 }
             }
         } else if (unformattedMessage.startsWith("BED DESTRUCTION")) {
+//            System.out.println("In bed destruction");
             if ((matcher = bedBreakPattern.matcher(unformattedMessage)).find()) {
                 String team = matcher.group("team");
                 String player = matcher.group("player");
@@ -153,7 +156,11 @@ public class SessionStats {
                     bedsBroken++;
                 }
             }
-        } else if (message.endsWith("§7. §b§lFINAL KILL!")) {
+        } else if (message.contains("§7.§b §b§lFINAL KILL!")) {
+
+//            System.out.println("Final Kill Message Detected!!!");
+//            System.out.println("Formatted Chat message: " + message);
+
             if ((matcher = finalKillPattern.matcher(unformattedMessage)).find()) {
                 String killer = matcher.group("killer");
                 String killed = matcher.group("killed");
@@ -167,6 +174,7 @@ public class SessionStats {
                 }
             }
         } else if ((matcher = killPattern.matcher(message)).find()) {
+//            System.out.println("Kill plattern matcher");
             String killer = matcher.group("killer");
             String killed = matcher.group("killed");
 
@@ -178,6 +186,7 @@ public class SessionStats {
                 deaths++;
             }
         } else if ((matcher = selfKillPattern.matcher(message)).find()) {
+//            System.out.println("In self killed pattern");
             String killed = matcher.group("killed");
             deaths++;
         } else {

@@ -1,7 +1,6 @@
 package me.errorpnf.bedwarsmod;
 
 import cc.polyfrost.oneconfig.events.EventManager;
-import me.errorpnf.bedwarsmod.autoupdate.ModrinthUpdater;
 import me.errorpnf.bedwarsmod.commands.BedwarsChatStats;
 import me.errorpnf.bedwarsmod.commands.BedwarsModCommand;
 import me.errorpnf.bedwarsmod.commands.MyCommand;
@@ -49,11 +48,6 @@ public class BedwarsMod {
         //MinecraftForge.EVENT_BUS.register(new ClickChatForStats());
         EventManager.INSTANCE.register(new HypixelLocraw());
 
-
-        EventManager.INSTANCE.register(new ModrinthUpdater());
-
-        ModrinthUpdater.init();
-//        UpdateManager.init();
     }
 
     @SubscribeEvent

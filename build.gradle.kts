@@ -200,12 +200,12 @@ tasks {
 tasks.named("build") {
     doLast {
         // Path to the built JAR file after the build (from the build/libs directory)
-        val finalJar = file("build/libs/${mod_archives_name}-1.8.9-forge-${mod_version}.jar")
+        val finalJar = file("build/libs/${mod_archives_name} 1.8.9-forge-${mod_version}.jar")
 
         // Ensure the built JAR file exists before proceeding
         if (finalJar.exists()) {
             // Additional destination directory
-            val additionalDestDir = file("D:/Prism Launcher/Instances/2345/.minecraft/mods")
+            val additionalDestDir = file("/home/isayal/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/1.8.9/minecraft/mods/")
 
             // Ensure the destination directory exists
             additionalDestDir.mkdirs()
