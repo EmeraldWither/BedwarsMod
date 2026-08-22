@@ -115,11 +115,12 @@ public class SessionStats {
 
         Matcher matcher;
 
-
-        if (event.message.getFormattedText().contains("§e§lCollect Lucky Blocks from resource generators") ||
-                event.message.getFormattedText().contains("§e§lProtect your bed and destroy the enemy beds.") ||
-                event.message.getFormattedText().contains("§e§lPlayers swap teams at random intervals!") ||
-                event.message.getFormattedText().contains("§e§lPlayers")) {
+// §r§f     §r§e§lProtect your bed and destroy the enemy beds.§r
+        //§f     §e§lProtect your bed and destroy the enemy beds.
+        if (message.contains("§e§lCollect Lucky Blocks from resource generators") ||
+                message.contains("e§lProtect your bed and destroy the enemy beds.") ||
+                message.contains("§e§lPlayers swap teams at random intervals!") ||
+                message.contains("§e§lPlayers")) {
             startGameTimer();
         }
 
@@ -202,7 +203,7 @@ public class SessionStats {
     private boolean hasGameEnded = false;
 
     private void startGameTimer() {
-        //System.out.println("started game timer");
+//        System.out.println("started game timer");
         hasGameEnded = false;
         gameTimeTicks = 0;
         gamesPlayed++;
@@ -215,10 +216,11 @@ public class SessionStats {
 
         isTimerRunning = true;
 
-        //System.out.println("continued game timer");
+//        System.out.println("continued game timer");
     }
 
     private void stopGameTimer() {
+//        System.out.println("Stopping the game timer!");
         if (!isTimerRunning) return;
 
         hasGameEnded = true;
@@ -237,16 +239,22 @@ public class SessionStats {
         }
 
         if (HypixelLocraw.getIsInBedwarsGame()) {
+//            System.out.println("In bedwars game");
             if (!isTimerRunning) {
+//                System.out.println("In hypixel and continuning the timer.");
                 continueTimer();
             }
-        } else {
+        } else if (hasGameEnded){
             stopGameTimer();
         }
+
 
         if (isTimerRunning && event.phase == TickEvent.Phase.START) {
             gameTimeTicks++;
             totalSessionTimeTicks++;
+//            System.out.println("Timer value:" );
+//            System.out.println("\t Game Time Ticks: " + gameTimeTicks);
+//            System.out.println("\t Game Time Ticks: " + totalSessionTimeTicks);
         }
     }
 
